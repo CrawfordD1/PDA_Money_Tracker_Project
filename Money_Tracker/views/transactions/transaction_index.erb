@@ -1,0 +1,16 @@
+<h1>
+  <p>TRANSACTIONS</p>
+</h1>
+
+<% for transaction in @transactions %>
+<div class="transactions">
+<p>Date: <%= transaction.purchase_date %></p>
+<p>Amount: <%= transaction.amount %></p>
+<p>Merchant: <%= transaction.merchant.name %></p>
+<p>Item Type: <%= transaction.item.type %></p>
+<div>
+<p><a href="/transaction/<%= transaction.id %>">Show transaction</a></p>
+</div>
+<hr />
+</div>
+<% end %>

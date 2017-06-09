@@ -1,26 +1,31 @@
 require_relative '../db/sql_runner.rb'
 
-class transaction 
+class Transaction 
 
-  attr_reader :amount, :purchase_date, :merchant_id, :item_id
+  attr_reader :id, :amount, :purchase_date, :merchant_id, :item_id
+
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @amount = options['amount']
+    @amount = options['amount'].to_i
     @purchase_date = options['purchase_date']
-    @merchant_id = options['merchant_id']
-    @item_id = options['item_id']
+    @merchant_id = options['merchant_id'].to_i
+    @item_id = options['item_id'].to_i
   end
 
   def save()
-    sql = "INSERT INTO transactions (amount, purchase_date, merchant_id, item_id) VALUES (#{@amount}, '#{@purchse_date}', #{@merchant_id}, #{@item_id}) RETURNING * ;"
+    sql = "INSERT INTO transactions (amount, purchase_date, merchant_id, item_id) VALUES (#{@amount}, '#{@purchase_date}', #{@merchant_id}, #{@item_id}) RETURNING * ;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i()
   end
 
   def update(options)
-    sql = "UPDATE transactions SET () = () 
-    WHERE id = #{@id};"
+    sql = "UPDATE transactions SET (amount, purchase_date, merchant_id, item_id) = 
+    (#{options['amount']}, 
+    '#{options['purchase_date']}',
+     #{options['merchant_id']}, 
+     #{options['item_id']}) 
+     WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
@@ -36,7 +41,7 @@ class transaction
   def item
     sql = "SELECT * FROM items AS i
           INNER JOIN transactions AS t
-          ON t.items_id = i.id
+          ON t.item_id = i.id
           WHERE i.id = #{@item_id}"
     results = SqlRunner.run( sql )
     return Item.new( results.first )
@@ -59,16 +64,12 @@ class transaction
     sql =  "SELECT * FROM transactions;"
     transactions = SqlRunner.run(sql)
     return transactions.map { |options| Transaction.new(options)}
-
   end
 
   def self.delete_all()
     sql = "DELETE FROM transactions;"
     SqlRunner.run(sql)
   end
-
-
-
 
 
 end

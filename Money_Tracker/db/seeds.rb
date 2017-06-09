@@ -25,10 +25,11 @@ item1.save()
 
 transaction1 = Transaction.new({
   'amount' => 20,
-  'purchase_date' => 'March 04 17',
+  'purchase_date' => 'March 4 17',
   'merchant_id' => merchant1.id,
   'item_id' => item1.id
   })
+
  transaction1.save()
 
 

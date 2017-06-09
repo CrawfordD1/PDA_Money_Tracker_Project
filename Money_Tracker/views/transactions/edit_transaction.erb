@@ -1,0 +1,42 @@
+<div class="input-forms">
+<form action="/transaction/<%= @transaction.id %>" method="POST" class="user-form">
+
+<div class="field">
+<label for="amount">Amount: </label>
+<input type="number" id="amount" name="amount" value = "<%=@transaction.amount%>">
+</div>
+
+<div class="field">
+<label for="purchase_date">Date: </label>
+<input type="date" id="purchase_date" name="purchase_date" value = "<%=@transaction.purchase_date%>">
+</div>
+
+<div class="field">
+<label for="merchant-select">Where?:</label>
+<select name="merchant_id" id="merchant-select">
+<%for merchant in @merchants%>
+<% if merchant.name == @transaction.merchant.name%>
+  <option selected value="<%=merchant.id%>"><%=merchant.name%></option>
+<% else %>
+  <option value="<%=merchant.id%>"><%=merchant.name%></option>
+<% end %>
+<% end %>
+</select>
+</div>
+
+<div class="field">
+<label for="item-select">What?:</label>
+<select name="item_id" id="item-select">
+<%for item in @items%>
+<% if item.type == @transaction.item.type%>
+  <option selected value="<%=item.id%>"><%=item.type%></option>
+<% else %>
+  <option value="<%=item.id%>"><%=item.type%></option>
+<% end %>
+<% end %>
+</select>
+</div>
+
+<input type="submit" value="Submit edit">
+</form>
+</div>

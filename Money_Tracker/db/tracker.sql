@@ -23,7 +23,7 @@ CREATE TABLE users(
 CREATE TABLE transactions(
   id SERIAL8 PRIMARY KEY,
   amount INT,
-  purcahse_date DATE,
-  merchant_id REFERENCES merchants(id),
-  item_id REFERENCES items(id)
+  purchase_date DATE,
+  merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
+  item_id INT8 REFERENCES items(id) ON DELETE CASCADE
 );

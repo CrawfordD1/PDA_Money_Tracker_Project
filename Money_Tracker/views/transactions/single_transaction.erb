@@ -1,0 +1,6 @@
+<p>Date: <%= @transaction.purchase_date %></p>
+<p>Amount: <%= @transaction.amount %></p>
+<p>Merchant: <%= @transaction.merchant.name %></p>
+<p>Item Type: <%= @transaction.item.type %></p>
+
+<p><a href="/transaction/<%= @transaction.id %>/edit">Edit transaction</a></p>
