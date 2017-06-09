@@ -18,7 +18,7 @@ merchant1 = Merchant.new({
 merchant1.save()
 
 item1 = Item.new({ 
-  'type' => 'grocerys' 
+  'type' => 'booze' 
   })
 
 item1.save()
