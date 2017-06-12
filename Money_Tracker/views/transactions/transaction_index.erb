@@ -1,16 +1,42 @@
+<% total = 0 %>
+
 <h1>
   <p>TRANSACTIONS</p>
 </h1>
+<h2>
+<p>Hi <%= @user.name%></p> <p>Monthly Budget: <%=@user.balance.to_i%> <a href="/user/1/edit">(Update budget)</a></p>
+</h2>
 
 <% for transaction in @transactions %>
 <div class="transactions">
+<hr />
 <p>Date: <%= transaction.pretty_purchase_date %></p>
-<p>Amount: <%= transaction.amount %></p>
+<p>Amount: £<%= transaction.amount %></p>
 <p>Merchant: <%= transaction.merchant.name %></p>
 <p>Item Type: <%= transaction.item.type %></p>
-<div>
-<p><a href="/transaction/<%= transaction.id %>">Show transaction</a></p>
-</div>
+
 <hr />
+<% total += transaction.amount %>
+<div>
+<br />
+
 </div>
+
+</div>
+<p><%= transaction.item.type %> total: <%= transaction.item_total %></p>
+<p><a href="/transaction/<%= transaction.id %>">Show transaction</a></p>
+<hr />
 <% end %>
+
+
+
+
+<h3><p>Total Spent: £<%= total %></p>
+<p>Current remaining monthly balance: £<%= @user.balance.to_i - total %></p>
+</h3>
+<div>
+<% if (@user.balance.to_i - total) < 0%>
+<p>Monthly Budget Exceeded!</p>
+<% end %>
+</div>
+

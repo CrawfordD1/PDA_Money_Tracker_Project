@@ -31,7 +31,7 @@ class User
   end
 
   def self.find(id)
-    sql = "SELECT * FROM users WHERE id = #{id};"
+    sql = "SELECT * FROM users WHERE id = '#{id}';"
     options = SqlRunner.run( sql )
     user = User.new( options.first )
     return user

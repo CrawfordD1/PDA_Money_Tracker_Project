@@ -1,0 +1,16 @@
+<div class="input-forms">
+<form action="/user/<%= @user.id %>" method="POST" class="user-form">
+
+<div class="field">
+<label for="name">New Name: </label>
+<input type="text" id="name" name="name" autocomplete="off" required>
+</div>
+<div class="field">
+<label for="balance">New Budget: </label>
+<input type="number" id="balance" name="balance" autocomplete="off" required>
+</div>
+
+<input type="submit" value="Submit New">
+<input type="reset">
+</form>
+</div>

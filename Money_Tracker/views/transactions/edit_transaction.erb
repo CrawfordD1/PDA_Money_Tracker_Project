@@ -3,16 +3,16 @@
 
 <div class="field">
 <label for="amount">Amount: </label>
-<input type="number" id="amount" name="amount" value = "<%=@transaction.amount%>">
+<input type="number" id="amount" name="amount" value = "<%=@transaction.amount%>" autocomplete="off" required>
 </div>
 
 <div class="field">
 <label for="purchase_date">Date: </label>
-<input type="date" id="purchase_date" name="purchase_date" value = "<%=@transaction.purchase_date%>">
+<input type="date" id="purchase_date" name="purchase_date" value = "<%=@transaction.purchase_date%>" autocomplete="off" required>
 </div>
 
 <div class="field">
-<label for="merchant-select">Where?:</label>
+<label for="merchant-select">Where?: <a href="/merchants/new">(Add new merchant)</a></label>
 <select name="merchant_id" id="merchant-select">
 <%for merchant in @merchants%>
 <% if merchant.name == @transaction.merchant.name%>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="field">
-<label for="item-select">What?:</label>
+<label for="item-select">What?: <a href="/items/new">(Add new item class)</a></label>
 <select name="item_id" id="item-select">
 <%for item in @items%>
 <% if item.type == @transaction.item.type%>
@@ -39,5 +39,11 @@
 
 <input type="submit" value="Submit edit">
 <input type="reset">
+
 </form>
+
+
+
+
 </div>
+

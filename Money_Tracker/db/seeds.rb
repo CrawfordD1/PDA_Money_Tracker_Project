@@ -11,17 +11,34 @@ user1 = User.new({
 user1.save()
 
 merchant1 = Merchant.new({
-  'name' => 'Tesco',
-  'image_link' => 'a'
+  'name' => 'Tesco'
+  })
+merchant2 = Merchant.new({
+  'name' => 'Amazon'
+  })
+merchant3 = Merchant.new({
+  'name' => 'Netflix'
   })
 
 merchant1.save()
+merchant2.save()
+merchant3.save()
+
 
 item1 = Item.new({ 
-  'type' => 'booze' 
+  'type' => 'Food & drink', 'total' => 20 
+  })
+item2 = Item.new({ 
+  'type' => 'Headphones', 'total' => 0
+  })
+item3 = Item.new({ 
+  'type' => 'Monthly subscription' , 'total' => 0
   })
 
+
 item1.save()
+item2.save()
+item3.save()
 
 transaction1 = Transaction.new({
   'amount' => 20,

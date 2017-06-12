@@ -2,7 +2,7 @@ require_relative '../db/sql_runner.rb'
 
 class Item
 
-  attr_reader :type, :id
+  attr_accessor :type, :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

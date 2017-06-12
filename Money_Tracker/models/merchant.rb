@@ -2,24 +2,22 @@ require_relative '../db/sql_runner.rb'
 
 class Merchant 
 
-  attr_reader :name, :image_link, :id
+  attr_reader :name, :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @image_link = options['image_link']
   end
 
   def save()
-    sql = "INSERT INTO merchants (name, image_link) VALUES ('#{@name}', '#{@image_link}') RETURNING * ;"
+    sql = "INSERT INTO merchants (name) VALUES ('#{@name}') RETURNING * ;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i()
   end
 
   def update(options)
-    sql = "UPDATE merchants SET (name, image_link) = (
-      '#{options['name']}',
-      '#{options['image_link']}') 
+    sql = "UPDATE merchants SET (name) = (
+      '#{options['name']}') 
     WHERE id = #{@id};"
     SqlRunner.run(sql)
   end

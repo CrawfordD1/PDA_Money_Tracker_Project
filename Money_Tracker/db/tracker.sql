@@ -11,7 +11,8 @@ CREATE TABLE merchants(
 
 CREATE TABLE items(
   id SERIAL8 PRIMARY KEY,
-  type VARCHAR(255)
+  type VARCHAR(255),
+  total INT
 );
 
 CREATE TABLE users(

@@ -3,9 +3,11 @@ require( 'sinatra/contrib/all' )
 require_relative( '../models/transactions.rb' )
 require_relative( '../models/merchant.rb' )
 require_relative( '../models/items.rb' )
+require_relative( '../models/user.rb' )
 
 
 get '/transactions' do
+  @user = User.find(1)
   @transactions = Transaction.all()
   erb (:"transactions/transaction_index")
 end

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Money Tracker</title>
-  <nav><a href="/transaction/new">Add New Transaction</a></nav>
-  <nav><a href="/transactions">All Transactions</a></nav>
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 </head>
 <body>
-  <%= yield%>
+ 
+    <div class= "nav">
+      <a href="/transactions">All Transactions</a>
+      <a href="/transaction/new">Add New Transaction</a>
+    </div>
+  
+  <div class="main">
+    <%= yield %>
+  </div>
+
 </body>
+</div>
 </html>
+
+
