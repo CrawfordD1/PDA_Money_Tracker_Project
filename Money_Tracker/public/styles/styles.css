@@ -10,6 +10,9 @@ body {
   background-size:cover
 }
 
+.main{
+}
+
 .nav {
   display: flex;
   justify-content: center;
@@ -30,6 +33,16 @@ body {
 
 }
 
+.month_nav{
+  display: flex;
+  justify-content: center;
+  align-content: middle;
+  width: auto;
+  font-size: 20;
+  font-family: 'Acme', sans-serif;
+  color: #1e1f21;
+  text-shadow: 1px 1px #7a8699;
+}
 
 .nav a:hover {
   background: rgb(30,87,153);
@@ -37,6 +50,7 @@ body {
   background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(26,93,137,1) 50%,rgba(7,25,45,1) 51%,rgba(125,185,232,1) 100%);
   background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(26,93,137,1) 50%,rgba(7,25,45,1) 51%,rgba(125,185,232,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+
 
   color: white;
 }

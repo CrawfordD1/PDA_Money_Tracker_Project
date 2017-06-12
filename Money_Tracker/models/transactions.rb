@@ -21,7 +21,14 @@ class Transaction
   end
 
   def pretty_purchase_date()
-    return DateTime.parse(@purchase_date).strftime("%d/%m/%Y")
+  return DateTime.parse(@purchase_date).strftime("%d/%m/%Y")
+  end
+
+
+  def self.find_by_month(month)
+    sql =  "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM purchase_date) = #{month};"
+    transactions = SqlRunner.run(sql)
+    return transactions.map { |options| Transaction.new(options)}
   end
 
   def update(options)

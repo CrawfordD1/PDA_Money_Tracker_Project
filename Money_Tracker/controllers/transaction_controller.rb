@@ -9,6 +9,13 @@ require_relative( '../models/user.rb' )
 get '/transactions' do
   @user = User.find(1)
   @transactions = Transaction.all()
+  # @transactions = Transaction.find_by_month(3)
+  erb (:"transactions/transaction_index")
+end
+
+get '/transactions/month/:month' do
+  @user = User.find(1)
+  @transactions = Transaction.find_by_month(params[:month])
   erb (:"transactions/transaction_index")
 end
 
@@ -22,6 +29,8 @@ get '/transaction/:id' do
   @transaction = Transaction.find(params[:id])
   erb (:"transactions/single_transaction")
 end
+
+
 
 get '/transaction/:id/edit' do
   @merchants = Merchant.all()

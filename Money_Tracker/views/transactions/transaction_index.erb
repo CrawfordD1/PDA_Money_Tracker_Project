@@ -4,8 +4,35 @@
   <p>TRANSACTIONS</p>
 </h1>
 <h2>
-<p>Hi <%= @user.name%></p> <p>Monthly Budget: <%=@user.balance.to_i%> <a href="/user/1/edit">(Update budget)</a></p>
+<p>Hi <%= @user.name%></p> <p>Monthly Budget: <%=@user.balance.to_i%>  <a href="/user/1/edit">(Update budget)</a></p>
 </h2>
+
+
+
+<div class="month_nav">
+<label for="month-select">Sort by Month:
+<select name="month" id="month" onchange="location = this.value;">
+
+<option selected value="/transactions">Select a Month</option>
+<option value="/transactions">All</option>
+<option value="/transactions/month/1">January</option>
+<option value="/transactions/month/2">Febuary</option>
+<option value="/transactions/month/3">March</option>
+<option value="/transactions/month/4">April</option>
+<option value="/transactions/month/5">May</option>
+<option value="/transactions/month/6">June</option>
+<option value="/transactions/month/7">July</option>
+<option value="/transactions/month/8">August</option>
+<option value="/transactions/month/9">September</option>
+<option value="/transactions/month/10">October</option>
+<option value="/transactions/month/11">November</option>
+<option value="/transactions/month/12">December</option>
+
+</select>
+</div>
+
+<br />
+<br />
 
 <% for transaction in @transactions %>
 <div class="transactions">
@@ -14,7 +41,6 @@
 <p>Amount: £<%= transaction.amount %></p>
 <p>Merchant: <%= transaction.merchant.name %></p>
 <p>Item Type: <%= transaction.item.type %></p>
-
 <hr />
 <% total += transaction.amount %>
 <div>
@@ -39,4 +65,11 @@
 <p>Monthly Budget Exceeded!</p>
 <% end %>
 </div>
+
+
+
+
+
+
+
 
