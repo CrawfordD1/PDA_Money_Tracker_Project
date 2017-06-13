@@ -70,24 +70,7 @@ transaction5 = Transaction.new({
   'merchant_id' => merchant3.id,
   'item_id' => item3.id
   })
-transaction6 = Transaction.new({
-  'amount' => 7,
-  'purchase_date' => 'May 1 17',
-  'merchant_id' => merchant3.id,
-  'item_id' => item3.id
-  })
-transaction7 = Transaction.new({
-  'amount' => 7,
-  'purchase_date' => 'June 1 17',
-  'merchant_id' => merchant3.id,
-  'item_id' => item3.id
-  })
-transaction8 = Transaction.new({
-  'amount' => 7,
-  'purchase_date' => 'July 1 17',
-  'merchant_id' => merchant3.id,
-  'item_id' => item3.id
-  })
+
 
 
 
@@ -97,9 +80,6 @@ transaction8 = Transaction.new({
  transaction3.save()
  transaction4.save()
  transaction5.save()
- transaction6.save()
- transaction7.save()
- transaction8.save()
 
 
 

@@ -161,7 +161,9 @@ body{
 
 /*---------------MAIN---------------------*/
 
-
+h1{
+color:white;
+}
 
 
 .display--budgetRemain{
