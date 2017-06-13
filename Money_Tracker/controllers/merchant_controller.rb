@@ -22,3 +22,10 @@ post '/merchants' do
   @merchants.save
   redirect to("/transaction/new")
 end
+
+post '/merchants/:id/delete' do
+  @user = User.find(1)
+  @merchants = Merchant.find(params[:id])
+  @merchants.delete()
+  redirect to "/merchants"
+end

@@ -9,7 +9,7 @@ require_relative( '../models/user.rb' )
 get '/transactions' do
   @user = User.find(1)
   @transactions = Transaction.all()
-  erb (:"transactions/transaction_index")
+  redirect to("/transactions/showall")
 end
 
 get '/transactions/showall' do
@@ -21,6 +21,7 @@ end
 get '/transactions/month/:month' do
   @user = User.find(1)
   @transactions = Transaction.find_by_month(params[:month])
+  @month_total = params[:month]
   erb (:"transactions/transaction_index")
 end
 

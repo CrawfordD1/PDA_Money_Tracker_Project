@@ -1,3 +1,4 @@
+<div class="add_new_class">
 <p>Date: <%= @transaction.pretty_purchase_date %></p>
 <p>Amount: <%= @transaction.amount %></p>
 <p>Merchant: <%= @transaction.merchant.name %></p>
@@ -7,3 +8,5 @@
 <form action="/transaction/<%= @transaction.id %>/delete" method="POST">
   <input type="submit" value="Delete Transaction">
 </form>
+
+</div>

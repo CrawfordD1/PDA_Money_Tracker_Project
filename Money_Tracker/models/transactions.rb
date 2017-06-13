@@ -78,6 +78,17 @@ def item_total
   return total_spent
 end
 
+def item_total_month(month)
+  sql = "SELECT t.amount FROM items AS i
+  INNER JOIN transactions AS t
+  ON t.item_id = i.id
+  WHERE i.id = #{@item_id} AND EXTRACT(MONTH FROM purchase_date) = #{month};"
+  results = SqlRunner.run( sql )
+  total_spent = 0
+  results.map {|result| total_spent += result['amount'].to_i}
+  return total_spent
+end
+
 
 
 def delete()

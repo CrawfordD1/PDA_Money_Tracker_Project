@@ -1,10 +1,21 @@
+<div class="add_new_class">
 <h1>
-  <p>items</p>
+  <p>ITEMS</p>
 </h1>
 
-<% for items in @items %>
+
+<a href="/items/new">New Item Class</a>
+</div>
+
+
+<% for item in @items %>
+<div class="i_m_index">
 <div class="items">
-<p>Name: <%= item.name %></p>
+<p>Name: <%= item.type %></p>
+<form action="/items/<%= item.id %>/delete" method="POST">
+  <input type="submit" value="Delete item">
+</form>
 <hr />
+</div>
 </div>
 <% end %>

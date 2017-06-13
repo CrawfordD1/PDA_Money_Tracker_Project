@@ -1,10 +1,30 @@
 <% total = 0 %>
 
 <h1>
-  <p>TRANSACTIONS</p>
+  <p><%=@user.name%>s Transactions</p>
 </h1>
 
+<div class="month_nav">
+  <label for="month-select">Sort by Month:
+    <select name="month" id="month" onchange="location = this.value;">
 
+      <option selected value="/transactions">Select a Month</option>
+      <option value="/transactions">All</option>
+      <option value="/transactions/month/1">January</option>
+      <option value="/transactions/month/2">Febuary</option>
+      <option value="/transactions/month/3">March</option>
+      <option value="/transactions/month/4">April</option>
+      <option value="/transactions/month/5">May</option>
+      <option value="/transactions/month/6">June</option>
+      <option value="/transactions/month/7">July</option>
+      <option value="/transactions/month/8">August</option>
+      <option value="/transactions/month/9">September</option>
+      <option value="/transactions/month/10">October</option>
+      <option value="/transactions/month/11">November</option>
+      <option value="/transactions/month/12">December</option>
+
+    </select>
+  </div>
 
 
 <br />
@@ -14,6 +34,7 @@
 <div class="transactions">
 <hr />
 <p>Date: <%= transaction.pretty_purchase_date %></p>
+<hr />
 <p> Amount: £<%= transaction.amount %></p>
 <p> Merchant: <%= transaction.merchant.name %></p>
 <p> Item Type: <%= transaction.item.type %></p>
@@ -26,7 +47,7 @@
 </div>
 
 <div class="item_totals">
-<p><%= transaction.item.type %> total: £<%= transaction.item_total %></p>
+<p><%= transaction.item.type %> total this year: £<%= transaction.item_total %> | <%= transaction.item.type %> total for this month: £<%= transaction.item_total_month(@month_total) %></p>
 </div>
 
 <% end %>
@@ -34,7 +55,7 @@
 
 
 <div class="total">
-<p>Total Spent: £<%= total %></p>
+<p>Total Spent This Month: £<%= total %></p>
 </div>
 
 <div class="display--budgetRemain">

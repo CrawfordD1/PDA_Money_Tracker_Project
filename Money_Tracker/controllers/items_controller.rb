@@ -7,7 +7,7 @@ require_relative( '../models/items.rb' )
 get '/items' do
   @user = User.find(1)
   @items = Item.all()
-  erb (:"items/item_index")
+  erb (:"items/items_index")
 end
 
 get '/items/new' do 
@@ -21,4 +21,11 @@ post '/items' do
   @items = Item.new(params)
   @items.save()
   redirect to("/transaction/new")
+end
+
+post '/items/:id/delete' do
+  @user = User.find(1)
+  @items = Item.find(params[:id])
+  @items.delete()
+  redirect to "/items"
 end
