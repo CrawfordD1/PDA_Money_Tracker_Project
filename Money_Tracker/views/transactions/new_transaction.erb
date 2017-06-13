@@ -22,7 +22,9 @@
 </div>
 
 <div class="field">
-<label for="item-select">What?:<a href="/items/new">(Add new item class)</a></label>
+<label for="item-select">What?:<a href="/items/new">(Add new item class)
+</a>
+</label>
 <select name="item_id" id="item-select">
 <%for item in @items%>
 <option value="<%=item.id%>"><%=item.type%></option>

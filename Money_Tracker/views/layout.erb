@@ -7,17 +7,50 @@
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 </head>
 <body>
- 
-    <div class= "nav">
-      <a href="/transactions">All Transactions</a>
-      <a href="/transaction/new">Add New Transaction</a>
-    </div>
-  
-  <div class="main">
-    <%= yield %>
+
+  <div class= "sidebar">
+    <a href="/transactions">Transactions</a>
+    <a href="/transaction/new">Add New </a>
   </div>
 
-</body>
+  <div class= "nav">
+    <div class= "display--budget">
+    <p>Monthly Budget: <span class="budget_total"><%=@user.balance.to_i%></span>  <a href="/user/1/edit">(Update budget)</a></p>
+    </div>
+
+
+    <div class="month_nav">
+      <label for="month-select">Sort by Month:
+        <select name="month" id="month" onchange="location = this.value;">
+
+          <option selected value="/transactions">Select a Month</option>
+          <option value="/transactions">All</option>
+          <option value="/transactions/month/1">January</option>
+          <option value="/transactions/month/2">Febuary</option>
+          <option value="/transactions/month/3">March</option>
+          <option value="/transactions/month/4">April</option>
+          <option value="/transactions/month/5">May</option>
+          <option value="/transactions/month/6">June</option>
+          <option value="/transactions/month/7">July</option>
+          <option value="/transactions/month/8">August</option>
+          <option value="/transactions/month/9">September</option>
+          <option value="/transactions/month/10">October</option>
+          <option value="/transactions/month/11">November</option>
+          <option value="/transactions/month/12">December</option>
+
+        </select>
+      </div>
+    </div>
+
+    <div class="main">
+      <%= yield %>
+    </div>
+
+    <div class="footer">
+      <p>Test</p>
+    </div>
+
+  </body>
 </div>
 </html>
 

@@ -6,6 +6,6 @@ require_relative('controllers/merchant_controller')
 require_relative('controllers/user_controller')
 
 get '/' do
-  redirect to ("/transactions")
+  redirect to ("/transactions/showall")
   # erb( :index )
 end

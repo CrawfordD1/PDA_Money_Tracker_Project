@@ -4,12 +4,6 @@
   <p>TRANSACTIONS</p>
 </h1>
 
-
-
-
-<br />
-<br />
-
 <% for transaction in @transactions %>
 <div class="transactions">
 <hr />
@@ -37,15 +31,6 @@
 <p>Total Spent: £<%= total %></p>
 </div>
 
-<div class="display--budgetRemain">
-<p>Current remaining monthly balance: £<%= @user.balance.to_i - total %></p>
-</div>
-
-<div class="budget--warning">
-<% if (@user.balance.to_i - total) < 0%>
-<p>Monthly Budget Exceeded!</p>
-<% end %>
-</div>
 
 
 
