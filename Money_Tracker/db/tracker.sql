@@ -18,12 +18,12 @@ CREATE TABLE items(
 CREATE TABLE users(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  balance INT
+  balance DECIMAL(9,2)
 );
 
 CREATE TABLE transactions(
   id SERIAL8 PRIMARY KEY,
-  amount INT,
+  amount DECIMAL(9,2),
   purchase_date DATE,
   merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
   item_id INT8 REFERENCES items(id) ON DELETE CASCADE

@@ -41,14 +41,6 @@ class Transaction
     SqlRunner.run(sql)
   end
 
- #  def self.total
- #    main_total = 0
- #    for totals in @total_amount
- #     total += main_total
- #   end
- #   return main_total
- # end
-
  def merchant
   sql = "SELECT * FROM merchants AS m
   INNER JOIN transactions AS t
